@@ -1,0 +1,32 @@
+<footer class="footer">
+  <div class="footer-inner">
+    {{#link 'help_center'}}Home{{/link}} |
+    <a href="https://support.firstup.io/hc/">Firstup Help Center</a> |
+    <a href="https://firstup.io/privacy-policy/">Privacy Policy</a> |
+    <a href="https://firstup.io/legal/">Legal</a> |
+    <a href="/hc/p/cookies">Cookie Settings</a>
+
+    <span class="footer_spacer"></span>
+
+    <div class="footer-language-selector">
+      {{#if alternative_locales}}
+        <div class="dropdown language-selector" aria-haspopup="true">
+          <a class="dropdown-toggle">
+            {{current_locale.name}}
+          </a>
+          <span class="dropdown-menu dropdown-menu-end" role="menu">
+            {{#each alternative_locales}}
+              <a href="{{url}}" dir="{{direction}}" rel="nofollow" role="menuitem">
+                {{name}}
+              </a>
+            {{/each}}
+          </span>
+        </div>
+      {{/if}}
+    </div>
+  </div>
+
+  <div class="footer-inner">
+    <p style="font-size: 85%; vertical-align: baseline;">To report vulnerabilities within the platform, please see our <a href="https://firstup.io/legal/vulnerability-disclosure/">Vulnerability Disclosure</a></p>
+  </div>
+</footer>

@@ -1,0 +1,140 @@
+<section class="section hero">
+  <div class="hero-inner">
+    <!--<div class="subhead">What Would You Like to Know?</div>-->
+    <h1 class="hero-header">
+      Classic Studio Knowledge Base
+  </h1>
+    {{search submit=false instant=true class='search search-full' placeholder='Search the Knowledge Base...'}}
+  </div>
+</section>
+
+<!-- Upgrade Block -->
+<section class="upgrade-banner">
+  <div class="container">
+    <ul class="blocks-list">
+
+      <li class="blocks-item no-link">
+          <h2 class="blocks-item-title">Upgrading to the "new" Studio?</h2>
+      </li>
+
+      <li class="blocks-item">
+        <a href="https://support.firstup.io/hc/en-us/sections/1500001386921-Where-is-it-Now-" class="upgrade-item-link">
+          <div class="upgrade-icon"><img src="{{asset 'guide.svg'}}"></div>
+          <div class="upgrade-link">
+            <h3>Upgrade Guidance</h3>
+            <p>Articles to walk you through the biggest changes to your Studio experience</p>
+          </div>
+        </a>
+      </li>
+
+      <li class="blocks-item">
+        <a href="https://support.firstup.io/hc/en-us/" class="upgrade-item-link">
+          <div class="upgrade-icon"><img src="{{asset 'books.svg'}}"></div>
+          <div class="upgrade-link">
+            <h3>New Help Center</h3>
+            <p>Switch to the new Firstup Help Center for all the latest</p>
+          </div>
+        </a>
+      </li>
+
+    </ul>
+  </div>
+</section>
+
+<!-- New Featured Banner centered text layout
+<section class="feature-banner">
+  <div class="container">
+    <div class="centered-text">
+      <h2>Brand new to the Firstup platform?</h2>
+      <p>Welcome! Consider checking out our eLearnings in the <a href="https://training.onfirstup.com/">Training Center</a>.</p>
+      <a role=button class="button button-large" href="https://training.onfirstup.com/">Learn more</a>
+    </div>
+  </div>
+</section>-->
+
+<!-- New Featured Banner 1/3 + 2/3 layout
+<section class="feature-banner">
+  <div class="container">
+    <div class="intro-text">
+      <b>Brand new to SocialChorus?</b>
+      <p>Start here with a 10 minute overview of the platform!</p>
+    </div>
+    <div class="intro-content">
+      <div style="padding:56.21% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/483223695?h=972d5f6a02&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="&amp;quot;Let&amp;#039;s Connect&amp;quot; - An Overview of SocialChorus"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+    </div>
+  </div>
+</section>
+-->
+
+<div class="container">
+  <section class="section knowledge-base">
+    <section class="categories blocks">
+
+<!--  Old style announcment banner - deprecated
+      <div class="announcement-banner">
+<!-- Video: Let's Connect Studio Skim Intro
+        <span><b>Brand new to SocialChorus?</b> Start here with a 10 minute overview of the platform!<p></p></span>
+        <iframe class="center" src="https://player.vimeo.com/video/483223695" width=576 height="324" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+        <p>
+        </p>
+      </div>
+<!--
+      <div class="announcement-banner">
+<!-- Analyze promotion (started Sept 2020):
+        <span><b>Smart Campaigns</b> are better than ever! <b>Drive more engagement</b> by using Smart Campaigns.</span>
+        <a href="https://howto.socialchorus.com/hc/en-us/articles/360052977034" class="button">  SEE SMART CAMPAIGNS →	</a>
+<!-- Analyze promotion (May to Sept 2020):
+        <span><b><a href="https://howto.socialchorus.com/hc/en-us/articles/360044782634-Analyze-Overview">Analyze</a> is here!</b> Measure the impact of workforce communications and drive real change.</span>
+        <a href="https://howto.socialchorus.com/hc/en-us/articles/360047739513" class="button">  MEASURE SUCCESS →	</a>
+<!-- Original Initiatives promotion (April 2020):
+      <span><b>Introducing Initiatives.</b> Start reporting on coronavirus communications today!</span>
+        <a href="https://howto.socialchorus.com/hc/en-us/articles/360044264494" class="button">  GET STARTED →	</a>
+<!-- CC promotion retired during initiatives push for coronavirus:
+       <span><b>Introducing Channel Contributors.</b> Learn how to leverage the Channel Contributor role today!</span>
+        <a href="https://howto.socialchorus.com/hc/en-us/articles/360025507373-Program-Managers-How-to-Leverage-the-Channel-Contributor-Role" class="button">  GET STARTED →	</a>
+      </div>-->
+
+      <ul class="blocks-list">
+        {{#each categories}}
+          <li class="blocks-item">
+            <a href='{{url}}' class="blocks-item-link">
+              <h4 class="blocks-item-title">{{name}}</h4>
+              <p class="blocks-item-description">{{excerpt description}}</p>
+            </a>
+          </li>
+        {{/each}}
+      </ul>
+      {{pagination}}
+    </section>
+
+    {{#if promoted_articles}}
+      <section class="articles">
+        <h3>{{t 'promoted_articles'}}</h3>
+        <ul class="article-list promoted-articles">
+          {{#each promoted_articles}}
+            <li class="promoted-articles-item">
+              <a href="{{url}}">
+                {{title}}
+              </a>
+            </li>
+          {{/each}}
+        </ul>
+      </section>
+    {{/if}}
+  </section>
+
+  {{#if help_center.community_enabled}}
+    <section class="section community">
+      <h2>{{t 'community'}}</h2>
+      {{#link 'community' class='community-link'}}
+        {{t 'join_conversation'}}
+      {{/link}}
+
+      <div class="community-image"></div>
+    </section>
+  {{/if}}
+
+  <section class="section activity">
+    {{recent_activity}}
+  </section>
+</div>

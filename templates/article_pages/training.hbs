@@ -1,0 +1,70 @@
+
+<div class="container-divider"></div>
+<div class="container">
+    <nav class="sub-nav">
+    {{breadcrumbs}}
+  </nav>
+ 
+  <div class="article-container" id="article-container">
+    <section class="article-sidebar">
+    </section>
+    
+  <div class="article-container" id="article-container">
+    <article class="article">
+     
+  <header class="article-header">
+        <div class="logo">
+    {{#link 'help_center'}}
+      <img src="{{asset 'logo_scacademy.png'}}" alt="{{t 'logo'}}">
+    {{/link}}
+        <header class="article-header">
+        <h1 title="{{article.title}}" class="article-title">
+          {{article.title}}
+          {{#if article.internal}}
+            <span class="icon-lock" title="{{t 'internal'}}"></span>
+          {{/if}}
+        </h1>
+
+        <div class="article-author">
+          <div class="avatar article-avatar">
+            {{#if article.author.agent}}
+              <span class="icon-agent"></span>
+            {{/if}}
+            <img src="{{article.author.avatar_url}}" alt="Avatar" class="user-avatar"/>
+          </div>
+          <div class="article-meta">
+            {{#link 'user_profile' id=article.author.id}}
+              {{article.author.name}}
+            {{/link}}
+            <div class="article-updated meta-data">{{t 'updated'}} {{date article.updated_at timeago=true}}</div>
+          </div>
+        </div>
+  </header>
+      <section class="article-info">
+        <div class="article-content">
+          <div class="article-body">{{article.body}}</div>
+
+          <div class="article-attachments">
+            <ul class="attachments">
+              {{#each attachments}}
+                <li class="attachment-item">
+                  <a href="{{url}}" target="_blank">{{name}}</a>
+                  <div class="attachment-meta meta-group">
+                    <span class="attachment-meta-item meta-data">{{size}}</span>
+                    <a href="{{url}}" target="_blank" class="attachment-meta-item meta-data">Download</a>
+                  </div>
+                </li>
+              {{/each}}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <div class="article-more-questions">
+          {{request_callout}}
+        </div>
+        <div class="article-return-to-top">
+          <a href="#article-container">{{t 'return_to_top'}}<span class="icon-arrow-up"></span></a>
+        </div>
+      </footer>
